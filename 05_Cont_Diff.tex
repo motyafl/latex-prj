@@ -1,0 +1,99 @@
+\documentclass{article}
+\usepackage[a4paper, total={6in, 10in}]{geometry}
+
+% Allow the usage of UTF-8 characters
+\usepackage[utf8]{inputenc}
+% Allow the usage of graphics (.png, .jpg)
+\usepackage[T2A]{fontenc}
+
+%Hyphenation rules
+%--------------------------------------
+\usepackage{hyphenat}
+\hyphenation{ма-те-ма-ти-ка вос-ста-нав-ли-вать}
+%--------------------------------------
+\usepackage[english, russian]{babel}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+%\usepackage{math}
+\usepackage{amsmath, amssymb}
+\usepackage{lipsum}
+% Start the document
+\begin{document}
+
+% Create a new 1st level heading
+\paragraph{05 Определение дифференцируемости функции. Теорема о связи дифференцируемости с существованием производной.}
+
+\subsubsection*{Определение 1.} 
+
+Функция $y=f(x)$ называтся дифференцируемой в точке $x_0$, если ее приращение $\Delta y$ в этой точке можно записать в виде:
+
+\begin{equation}
+	\Delta y = A\cdot\Delta x+\alpha (\Delta x)\cdot\Delta x\text{,}
+\end{equation}
+
+$A$ - число и $A$ не зависит от $\Delta x$, $\alpha(\Delta x)$ - бесконечно малая функция при $\Delta x\to 0$.
+
+
+\subsubsection*{Теорема 1.} {О связи дифференцируемости с существованием производной}
+
+Функция $y=f(x)$ дифференцируема в точке $x_0$ тогда и только тогда, когда существует конечная производная в точке $x_0$.
+
+\subsubsection*{Доказательство необходимости:}
+
+По условию функция $y=f(x)$ дифференцируема в точке $x_0$, докажем, что существует конечная производная $f'(x)$.
+
+По определению дифференцируемой функции в точке:
+\[
+	\Delta y = A\cdot\Delta x+\alpha(\Delta x)\cdot\Delta x \text{,}
+\]
+где $\alpha (\Delta x)$ - бесконечно малая функция при $\Delta x \to 0$.
+
+Поделим на $\Delta x $ последнее равенство, $\Delta x \not= 0$ :
+\[
+	\frac{\Delta y}{\Delta x} = A + \alpha(\Delta x)\text{.}
+\]
+
+Перейдем к пределу при $\Delta x\to 0$ :
+\begin{equation*}
+\begin{aligned}
+	& \lim_{\Delta x\to 0}\frac{\Delta y}{\Delta x} = \lim_{\Delta x\to 0} \Bigl( A + \alpha(\Delta x)\Bigl) = 
+	\left[ 
+	\begin{aligned} 
+		&\text{по теореме о} \\ 
+		&\text{пределе суммы}
+	\end{aligned} \right] =
+	\lim_{\Delta x\to 0} A + \lim_{\Delta x\to 0}\alpha(\Delta x) = \\
+	& = \left[ 
+	\begin{aligned} 
+		&\text{$A$ не засивит от $\Delta x$,} \\ 
+		&\text{$\alpha(\Delta x)$ - бесконечно малая при $\Delta x\to 0$}
+	\end{aligned} \right] = A + 0 = A \text{ (существует и конечен).}
+\end{aligned}
+\end{equation*}
+
+С другой стороны, по определению производной функции в точке: $\lim_{\Delta x\to 0}\frac{\Delta y}{\Delta x} = f'(x_0)$, значит существует конечная производная %$f'(x_0)$ и
+$f'(x_0) = A.$
+
+Равенство (1) примет вид: $\Delta y = f'(x_0)\cdot\Delta x+\alpha (\Delta x)\cdot\Delta x.$
+
+\subsubsection*{Доказательство достаточности:}
+Пусть существует конечная $f'(x_0)$.
+
+Докажем, что функция $f(x)$ дифференцируема в точке $x_0$.
+
+По условию существует конечная $f'(x_0)$, значит, существует $\lim_{\Delta x\to 0} \frac{\Delta y}{\Delta x}=f'(x_0).$
+
+По теореме о представлении функции, имеющей конечный предел в точке:
+\[
+	\lim_{\Delta x\to 0} \frac{\Delta y}{\Delta x} = f'(x_0) + \alpha(\Delta x) \text{,}
+\]
+где $\alpha(\Delta x)$ - бесконечно малая функция при $\Delta x \to 0$.
+
+Тогда получаем:
+
+\[
+\Delta y = f'(x_0)\cdot\Delta x + \alpha(\Delta x)\cdot\Delta x
+\]
+Равенсто (1) имеет место, значит функция $y=f(x)$ дифференцируема в точке $x_0.$
+
+\end{document}

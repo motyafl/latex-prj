@@ -1,0 +1,100 @@
+\documentclass{article}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+
+% Allow the usage of UTF-8 characters
+\usepackage[utf8]{inputenc}
+% Allow the usage of graphics (.png, .jpg)
+\usepackage[T2A]{fontenc}
+
+%Hyphenation rules
+%--------------------------------------
+\usepackage{hyphenat}
+\hyphenation{ма-те-ма-ти-ка вос-ста-нав-ли-вать}
+%--------------------------------------
+\usepackage[english, russian]{babel}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+%\usepackage{math}
+\usepackage{amsmath, amssymb}
+% Start the document
+\begin{document}
+
+% Create a new 1st level heading
+\paragraph{04 Определение дифференцируемости функции. Теорема о связи непрерывности и дифференцируемости.}
+
+\subsubsection*{Определение 1.}
+
+Функция $y=f(x)$ называется дифференцируемой в точке $x_0$, если ее приращение $\Delta y$ в этой точке можно записать в виде:
+
+
+\[
+	\Delta y = A\cdot\Delta x+\alpha (\Delta x)\cdot\Delta x\text{,}
+\]
+
+
+$A$ - число и $A$ не зависит от $\Delta x$, $\alpha(\Delta x)$ - бесконечно малая функция при $\Delta x\rightarrow 0$.
+
+
+\subsubsection*{Теорема 2.} {О связи дифференцируемости и непрерывности.}
+
+
+Если функция $y=f(x)$ дифференцируема в точке $x_0$, то эта функция является непрерывной в точке $x_0$.
+
+Обратное утверждение неверно.
+
+\subsubsection*{Доказательство.}
+
+По условию фунция $y=f(x)$ дифференцируема в точке $x_0$
+
+По определению дифференцируемой функции в точке приращение функции в этой точке:
+\begin{equation*}
+	\Delta y = A\cdot\Delta x+\alpha(\Delta x)\cdot\Delta x =
+	\left[
+	\begin{aligned}
+		& \text{по теореме о связи дифференцируемости} \\
+		& \text{с существованием производной}
+	\end{aligned} \right ] = f' (x_0)\cdot\Delta x+\alpha(\Delta x)\cdot\Delta x \text{,}
+\end{equation*}
+
+где $\alpha (\Delta x)$ - бесконечно малая функция при $\Delta x \rightarrow 0$.
+
+Найдем $\lim_{\Delta x\rightarrow 0} \Delta y$ :
+\begin{equation*}
+\begin{aligned}
+	\lim_{\Delta x \rightarrow 0} \Delta y & = \lim_{\Delta x \rightarrow 0} (f'(x_0)\cdot\Delta x +\alpha(\Delta x)\cdot\Delta x) = \Bigl[ \text{применим теорему о пределе суммы} \Bigl] = \\
+	& = \lim_{\Delta x \rightarrow 0} f'(x_0)\cdot\Delta x + \lim_{\Delta x \rightarrow 0} \alpha(\Delta x)\cdot\Delta x = f'(x_0)\cdot 0 + 0\cdot 0 = 0 \text{.}
+\end{aligned}
+\end{equation*} 
+
+Получаем, что бесконечно малому приращению аргумента $\Delta x\rightarrow 0$ соответствует бесконечно малое приращение функции $\Delta y\rightarrow 0$.
+
+По эквивалентному определению непрерывной функции: $f(x)$ непрерывна в точке $x_0$.
+
+\begin{wrapfigure}{r}{0.2\textwidth}
+%\centering
+\includegraphics[width=0.26\textwidth]{images/fun_1.png}
+\end{wrapfigure}
+
+Чтобы показать, что обратное утверждение неверно, приведем пример.
+
+\subsubsection*{Пример 1.}
+
+
+В пример приведем функцию $y=|x|$, $x_0 = 0$.
+
+%\begin{centre}
+%    \includegraphics[width=100pt]{images/fun.jpg}
+%\end{centre}
+
+Функция $y=|x|$ непрерывна в точке $x_0 = 0$ (см. график)
+
+Посчитаем правую и левую производные функции $y=|x|$ :
+\begin{equation*}
+\begin{aligned}
+	& y'(0+0) = \lim_{ \Delta x\rightarrow 0+0}\frac{\Delta y}{\Delta x} = \Bigl[\Delta x > 0, \text{ т.е. } y = x \Bigl] = \lim_{\Delta x\rightarrow 0+0}\frac{(x+\Delta x)-x}{\Delta x} = \lim_{\Delta x \rightarrow 0} \frac{\Delta x}{\Delta x} = 1,\\
+	& y'(0-0) = \lim_{\Delta x\rightarrow 0-0}\frac{\Delta y}{\Delta x} = \Bigl[ \Delta x < 0, \text{ т.е. } y = -x \Bigl] = \lim_{\Delta x\rightarrow 0+0}\frac{-(x+\Delta x)-(-x)}{\Delta x} = \lim_{\Delta x \rightarrow 0} \frac{-\Delta x}{\Delta x} = -1.
+\end{aligned}
+\end{equation*}
+
+$1\not= -1,$ значит, $\lim_{\Delta x\rightarrow 0} \frac{\Delta y}{\Delta x}$ не существует $\Rightarrow$ по теореме о связи дифференцируемости с существованием производной функция не дифференцируема в точке $x_0$.
+\end{document}
